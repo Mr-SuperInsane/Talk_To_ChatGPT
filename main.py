@@ -2,12 +2,12 @@ import speech_recognition as sr
 import openai
 import pyttsx3
 
-openai.api_key = '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'
+openai.api_key = 'openai_api_key'
 
 r = sr.Recognizer()
 
 with sr.Microphone(device_index=0) as source:
-    print('【ChatGPTに話しかけてください】')
+    print('--speak to chatgpt')
     audio = r.listen(source)
 try:
     user_message = r.recognize_google(audio, language='ja-JP')
@@ -27,4 +27,4 @@ try:
     engine.runAndWait()
 
 except:
-    print('【声が聞き取れませんでした】')
+    print('--sorry, inaudible--')
